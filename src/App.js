@@ -1,10 +1,8 @@
-
+import Body from "./components/Body";
 function App() {
   return (
-    <div className="mx-auto my-2 text-center">
-      <p className="text-2xl font-bold">NETFLIX-GPT</p>
-    </div>
+    <Body/>
   );
-}
+};
 
 export default App;
