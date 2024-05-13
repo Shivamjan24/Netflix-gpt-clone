@@ -1,11 +1,15 @@
 import Header from "./Header";
 import { useState,useRef } from "react";
 import validate from "../utils/validate";
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import {auth} from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
 const Login = () =>{
     const [isSignIn,setisSignIn]=useState(true);
     const email=useRef(null);
     const passwrd=useRef(null);
     const [errorr,seterrorr]=useState(null);
+    const navigate= useNavigate();
     const handlesign = () =>{
         setisSignIn(!isSignIn);
     }
@@ -14,6 +18,45 @@ const Login = () =>{
         const ans=validate(email.current.value,passwrd.current.value);
         console.log(ans)
         seterrorr(ans);
+        if(ans!==null)
+            return;
+        if(!isSignIn)
+        {
+            //Sign up logic
+            createUserWithEmailAndPassword(auth, email.current.value,passwrd.current.value)
+            .then((userCredential) => {
+                // Signed up 
+                const user = userCredential.user;
+                console.log(user);
+                navigate("/browsing");
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                seterrorr(errorMessage);
+                // ..
+            });
+            navigate("/browsing");
+        }
+        else
+        {
+            //Sign in Logic
+            signInWithEmailAndPassword(auth,email.current.value,passwrd.current.value)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                seterrorr(errorMessage);
+            });
+            navigate("/browsing");
+        }
     }
     return(
         <div>

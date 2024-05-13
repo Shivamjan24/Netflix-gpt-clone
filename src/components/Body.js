@@ -6,13 +6,14 @@ import Browsing from "./Browsing";
 const Body = () =>{
     const Path=createBrowserRouter([
         {
-            path:"/",
-            element:<Login/>,
-        },
-        {
             path:"/browsing",
             element:<Browsing/>,
         },
+        {
+            path:"/",
+            element:<Login/>,
+        },
+        
     ]);
     return(
         <div>

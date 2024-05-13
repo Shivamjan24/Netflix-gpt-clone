@@ -1,7 +1,9 @@
+import Header from "./Header";
+
 const Browsing = () =>{
     return(
         <div>
-            Browse
+            <Header/>
         </div>
     );
 };
