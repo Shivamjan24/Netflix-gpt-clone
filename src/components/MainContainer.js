@@ -6,12 +6,14 @@ import { useSelector } from 'react-redux';
     const moviess=useSelector(store=>store.movieList?.movies);
     if(moviess===null)
         return;
-    const mainmovie=moviess[10];
+    const mainmovie=moviess[9];
     const {title,overview,id}=mainmovie;
 	return (
 	  <div>
+      <div>
         <VideoTitle title={title} desc={overview}/>
         <VideoBackground id={id}/>
+      </div>
 	  </div>
 	);
   }

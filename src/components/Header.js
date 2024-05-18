@@ -45,12 +45,12 @@ const Header = () =>{
                 <img className="w-48 ml-32 mt-4 brightness-125" src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="logo"/>
             </div>
             <div className="flex p-2 justify-between">
-                {userr && (<div><button className="bg-red-600 text-white rounded-lg py-1 px-2 mt-4 mr-3" onClick={handlesignout}>SIGN-OUT</button></div>)}
+                {userr && (<div><button className="bg-red-600 text-white font-semibold rounded-lg py-1 px-4 mt-4 mr-3 hover:opacity-80" onClick={handlesignout}>SIGN-OUT</button></div>)}
                 {userr && (<div>
-                <img src={userlogo} className="w-8 mt-4 mr-6" alt="userlogo"/> </div>
+                <img src={userlogo} className="w-10 mt-4 mx-6" alt="userlogo"/> </div>
                 )}
             </div>
-            {namee && (<div className="font-bold text-lg text-white mt-4 ml-8">{namee}</div>)}
+            
         </div>
     );
 }

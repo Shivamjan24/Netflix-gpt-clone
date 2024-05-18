@@ -6,9 +6,9 @@ import { useEffect } from "react";
 const useMovieList= async () =>{
     const dispatch=useDispatch();
     const movies=useSelector(store=>store.movieList.movies);
-    console.log(movies);
+    //console.log(movies);
     const list=async ()=>{
-        const data=await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options);
+        const data=await fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
         const json= await data.json();
         dispatch(addMovies(json.results));
     }
