@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import { RouterProvider } from "react-router-dom";
 import Login from "./Login";
 import Browsing from "./Browsing";
+import GptSearchPage from "./GptSearchPage";
 
 
 const Body = () =>{
@@ -14,7 +15,6 @@ const Body = () =>{
             path:"/",
             element:<Login/>,
         },
-        
     ]);
     return(
         <div>
