@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import openai from "../utils/openai";
 import options from "../utils/options";
 import { useDispatch } from "react-redux";
 import { AddMovies, AddResults } from "../utils/GPTSlice";
@@ -12,10 +11,6 @@ const GptSearchBar = () =>  {
         dispatch(AddMovies(searchtext.current.value));
         const data=await fetch('https://api.themoviedb.org/3/search/multi?query='+searchtext.current.value,options);
         const json=await data.json();
-        /*const gptresult = await openai.chat.completions.create({
-            messages: [{ role: 'user', content: searchtext.current.value }],
-            model: 'gpt-3.5-turbo',
-          });*/
         console.log(json);
         dispatch(AddResults(json.results));
     }
